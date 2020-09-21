@@ -35,8 +35,10 @@ public class ProjectileScript : MonoBehaviour
     }
 
 	void FixedUpdate () {
+        /*
         if (speed != 0 && rb != null)
-			rb.position += (transform.forward/*+ offset*/) * (speed * Time.deltaTime);   
+			rb.position += (transform.forward) * (speed * Time.deltaTime);   
+        */
     }
 
 	void OnCollisionEnter (Collision co) {

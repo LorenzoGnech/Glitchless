@@ -12,10 +12,11 @@ public class Shooting : MonoBehaviour
     public float cooldownValue;
     private float cooldown = 1f;
     private GameObject pro;
+    private Rigidbody playerRb;
 
     void Start()
     {
-        
+        playerRb = player.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -38,7 +39,8 @@ public class Shooting : MonoBehaviour
     }
     
     void Shoot(){
-        GameObject proj = Instantiate(projectile, gunTip.position, gunTip.rotation);
-        //proj.GetComponent<ProjectileScript>.direction = player.playerRigidBody.transform;
+        var proj = Instantiate(projectile, gunTip.position, gunTip.rotation).GetComponent<Rigidbody>();
+        var bullet_speed = transform.TransformDirection(new Vector3 (0, 0, 100));
+        proj.velocity = bullet_speed /*+ playerRb.velocity/2*/;
     }
 }
